@@ -6,8 +6,16 @@
     <description>Recent content on Chris&#39; Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Dec 2023 15:41:32 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 Dec 2023 13:33:51 -0800</lastBuildDate>
     <atom:link href="https://Kendallchris.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Expression Evaluator</title>
+      <link>https://Kendallchris.github.io/posts/third-post/</link>
+      <pubDate>Thu, 07 Dec 2023 13:33:51 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/third-post/</guid>
+      <description>Step-by-Step Evaluation of Arithmetic Expressions in C++ In this post, I explore a C++ project that I developed for evaluating arithmetic expressions step-by-step. The project, part of my coursework, highlights my proficiency in utilizing C++ standard library features and understanding complex programming concepts.
+Project Insight The project comprises three main components: the &amp;lsquo;main&amp;rsquo; function, the &amp;rsquo;evaluator&amp;rsquo; module, and &amp;rsquo;test scripts&amp;rsquo;. Each plays a vital role in reading, processing, and evaluating arithmetic expressions, outputting each step of the evaluation process.</description>
+    </item>
     <item>
       <title>Three Points</title>
       <link>https://Kendallchris.github.io/posts/second-post/</link>
