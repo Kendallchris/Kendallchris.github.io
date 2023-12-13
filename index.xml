@@ -6,8 +6,16 @@
     <description>Recent content on Chris&#39; Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Dec 2023 13:33:51 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 Dec 2023 19:49:28 -0800</lastBuildDate>
     <atom:link href="https://Kendallchris.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Array Library</title>
+      <link>https://Kendallchris.github.io/posts/fourth-post/</link>
+      <pubDate>Tue, 12 Dec 2023 19:49:28 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/fourth-post/</guid>
+      <description>#Exploring Array Manipulations in C++ In this post, I delve into an intricate C++ project focused on array manipulations, which forms a part of my advanced programming studies. This project accentuates my understanding of basic data structures in C++ and exhibits my skills in implementing various array-based algorithms.
+##Project Overview This project, consisting of two primary components - the main function and the array_library, explores different operations on arrays, such as searching, sorting, and statistical analysis.</description>
+    </item>
     <item>
       <title>Expression Evaluator</title>
       <link>https://Kendallchris.github.io/posts/third-post/</link>
