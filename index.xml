@@ -6,8 +6,16 @@
     <description>Recent content on Chris&#39; Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Dec 2023 19:49:28 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 Dec 2023 19:49:49 -0800</lastBuildDate>
     <atom:link href="https://Kendallchris.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating a Dynamic Menu Class in C&#43;&#43;</title>
+      <link>https://Kendallchris.github.io/posts/fifth-post/</link>
+      <pubDate>Tue, 12 Dec 2023 19:49:49 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/fifth-post/</guid>
+      <description>Creating a Dynamic Menu Class in C++ In this post, I&amp;rsquo;ll share my experience developing a dynamic menu system in C++, a project that highlights my skills in creating reusable libraries. This system allows programmers to easily generate custom menus for their applications, with flexibility in menu options and input types.
+Project Overview The core of this project lies in the Menu and MenuElement classes. These classes collaborate to create a menu system that can be easily integrated into various applications, offering customizable options and handling user interactions efficiently.</description>
+    </item>
     <item>
       <title>Array Library</title>
       <link>https://Kendallchris.github.io/posts/fourth-post/</link>
