@@ -6,8 +6,16 @@
     <description>Recent content on Chris&#39; Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Dec 2023 07:35:16 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Dec 2023 07:52:41 -0800</lastBuildDate>
     <atom:link href="https://Kendallchris.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Dynamic Memory in C&#43;&#43;: The IntegerSet Class</title>
+      <link>https://Kendallchris.github.io/posts/seventh-post/</link>
+      <pubDate>Tue, 19 Dec 2023 07:52:41 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/seventh-post/</guid>
+      <description>Mastering Dynamic Memory in C++: The IntegerSet Class Project Overview In a recent academic assignment, I tackled the implementation of a dynamic IntegerSet class in C++. This project was designed to strengthen my skills in handling dynamic memory, working with classes and arrays, and ensuring efficient memory management to avoid leaks.
+Objective The primary goal was to implement various methods for the IntegerSet class that allow manipulation and analysis of sets of integers.</description>
+    </item>
     <item>
       <title>Implementing Shape Inheritance in C&#43;&#43;</title>
       <link>https://Kendallchris.github.io/posts/sixth-post/</link>
