@@ -6,8 +6,16 @@
     <description>Recent content on Chris&#39; Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Dec 2023 19:49:49 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Dec 2023 07:35:16 -0800</lastBuildDate>
     <atom:link href="https://Kendallchris.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementing Shape Inheritance in C&#43;&#43;</title>
+      <link>https://Kendallchris.github.io/posts/sixth-post/</link>
+      <pubDate>Tue, 19 Dec 2023 07:35:16 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/sixth-post/</guid>
+      <description>Implementing Shape Inheritance in C++ In my latest academic endeavor, I explored the concept of inheritance in C++ by creating a hierarchy of shape classes. This project involved constructing a base Shape class and several derived classes like Ellipse, Circle, Rectangle, and Square, each with unique characteristics.
+Project Overview The primary goal was to demonstrate inheritance and polymorphism in object-oriented programming. Each class in the hierarchy inherited properties and methods from its parent class while introducing its own unique features.</description>
+    </item>
     <item>
       <title>Creating a Dynamic Menu Class in C&#43;&#43;</title>
       <link>https://Kendallchris.github.io/posts/fifth-post/</link>
