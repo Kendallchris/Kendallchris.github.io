@@ -6,8 +6,16 @@
     <description>Recent content on Chris&#39; Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Dec 2023 07:52:41 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Dec 2023 08:02:24 -0800</lastBuildDate>
     <atom:link href="https://Kendallchris.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Navigating the Complexities of Infix to Postfix Conversion in C&#43;&#43;</title>
+      <link>https://Kendallchris.github.io/posts/eighth-post/</link>
+      <pubDate>Tue, 19 Dec 2023 08:02:24 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/eighth-post/</guid>
+      <description>Navigating the Complexities of Infix to Postfix Conversion in C++ Project Overview My recent project delved into the intricacies of converting infix expressions to postfix format in C++, a crucial aspect in understanding the nuances of computer algorithms and programming languages.
+Objective The primary goal was to develop a C++ program capable of converting complex infix expressions to their corresponding postfix formats, a task that involves a deep understanding of stack data structures and the precedence of arithmetic operators.</description>
+    </item>
     <item>
       <title>Mastering Dynamic Memory in C&#43;&#43;: The IntegerSet Class</title>
       <link>https://Kendallchris.github.io/posts/seventh-post/</link>
