@@ -6,8 +6,28 @@
     <description>Recent content in Posts on Chris&#39; Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Dec 2023 08:02:24 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jan 2024 17:30:14 -0800</lastBuildDate>
     <atom:link href="https://Kendallchris.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementing and Understanding Custom Data Structures in C&#43;&#43;</title>
+      <link>https://Kendallchris.github.io/posts/tenth-post/</link>
+      <pubDate>Fri, 05 Jan 2024 17:30:14 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/tenth-post/</guid>
+      <description>Implementing and Understanding Custom Data Structures in C++ Overview Recently, I had the opportunity to delve into the complex world of data structures in C++. My project involved creating custom classes such as &amp;lsquo;VSArray&amp;rsquo;, &amp;lsquo;DoubleLinkedList&amp;rsquo;, and &amp;lsquo;SortedDoubleLinkedList&amp;rsquo;, each serving unique purposes and presenting their own set of challenges.
+Goals &amp;lsquo;VSArray&amp;rsquo;: A dynamically resizable array class. &amp;lsquo;DoubleLinkedList&amp;rsquo;: A doubly linked list for efficient insertions and deletions. &amp;lsquo;SortedDoubleLinkedList&amp;rsquo;: An extension of DoubleLinkedList maintaining a sorted order of elements.</description>
+    </item>
+    <item>
+      <title>Mastering Tree-Based Expression Evaluation in C&#43;&#43;</title>
+      <link>https://Kendallchris.github.io/posts/ninth-post/</link>
+      <pubDate>Thu, 28 Dec 2023 19:39:37 -0500</pubDate>
+      <guid>https://Kendallchris.github.io/posts/ninth-post/</guid>
+      <description>Mastering Tree-Based Expression Evaluation in C++ ##Project Synopsis
+In a recent endeavor, I embarked on a challenging yet intriguing project in C++: constructing and evaluating expression trees from postfix expressions.
+##Project Aims
+The primary objective was to design a robust system that could:
+- Build expression trees from given postfix expressions. - Perform various tree traversals (Inorder, Preorder, Postorder). - Evaluate the expressions represented by these trees. ##Core Compnents
+The project revolved around two key C++ classes:</description>
+    </item>
     <item>
       <title>Navigating the Complexities of Infix to Postfix Conversion in C&#43;&#43;</title>
       <link>https://Kendallchris.github.io/posts/eighth-post/</link>
