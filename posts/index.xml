@@ -6,8 +6,34 @@
     <description>Recent content in Posts on Chris&#39; Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jan 2024 17:30:14 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jan 2024 17:24:07 -0800</lastBuildDate>
     <atom:link href="https://Kendallchris.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Statistical Analysis in Prolog</title>
+      <link>https://Kendallchris.github.io/posts/thirteenth-post/</link>
+      <pubDate>Mon, 15 Jan 2024 17:24:07 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/thirteenth-post/</guid>
+      <description>Statistical Analysis in Prolog Author: Chris Kendall
+Date: 20 November 2023
+This Prolog program, stats.pl, is designed for advanced statistical computations, focusing on linear regression, Pearson Correlation Coefficient, mean, and standard deviation. The program adeptly handles data from CSV files and performs complex statistical operations, showcasing the power of Prolog in data analysis.
+Key Features CSV Data Handling: Efficiently loads data from specified columns of CSV files, accommodating both headers and non-header datasets.</description>
+    </item>
+    <item>
+      <title>Statistical Analysis with `stats.scm`: A Comprehensive Overview</title>
+      <link>https://Kendallchris.github.io/posts/twelth-post/</link>
+      <pubDate>Mon, 15 Jan 2024 17:12:20 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/twelth-post/</guid>
+      <description>Statistical Analysis with stats.scm: A Comprehensive Overview The stats.scm Scheme program provides a robust suite for performing statistical analysis on data extracted from CSV files. It is designed to handle tasks such as linear regression, computing Pearson Correlation Coefficients, and calculating mean and standard deviation. This overview will delve into the program&amp;rsquo;s structure, highlighting its key functions and providing code snippets to elucidate its functionality.
+Key Functions of stats.scm read-csv</description>
+    </item>
+    <item>
+      <title>Exploring Rational Numbers in C&#43;&#43;: Operator Overloading and Precision Handling</title>
+      <link>https://Kendallchris.github.io/posts/eleventh-post/</link>
+      <pubDate>Fri, 05 Jan 2024 17:41:10 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/eleventh-post/</guid>
+      <description>Exploring Rational Numbers in C++: Operator Overloading and Precision Handling Introduction In a recent project, I tackled the fascinating challenge of representing rational numbers in C++ by developing a Rational class. This class not only stores rational numbers as a numerator and denominator but also implements a wide range of operator overloads to facilitate mathematical operations and comparisons.
+Objectives Accurate Representation: Store rational numbers as two integers, a numerator, and a denominator.</description>
+    </item>
     <item>
       <title>Implementing and Understanding Custom Data Structures in C&#43;&#43;</title>
       <link>https://Kendallchris.github.io/posts/tenth-post/</link>

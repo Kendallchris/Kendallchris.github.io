@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Statistical Analysis in Prolog - </title>
+
+  <meta name="description" content="Statistical Analysis in Prolog Author: Chris Kendall
+Date: 20 November 2023
+This Prolog program, stats.pl, is designed for advanced statistical computations, focusing on linear regression, Pearson Correlation Coefficient, mean, and standard deviation. The program adeptly handles data from CSV files and performs complex statistical operations, showcasing the power of Prolog in data analysis.
+Key Features CSV Data Handling: Efficiently loads data from specified columns of CSV files, accommodating both headers and non-header datasets."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Chris\u0027 Portfolio",
+    
+    "url": "https:\/\/Kendallchris.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/Kendallchris.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/Kendallchris.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/Kendallchris.github.io\/posts\/thirteenth-post\/",
+          "name": "Statistical analysis in prolog"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Statistical Analysis in Prolog",
+  "description" : "Statistical Analysis in Prolog Author: Chris Kendall\nDate: 20 November 2023\nThis Prolog program, stats.pl, is designed for advanced statistical computations, focusing on linear regression, Pearson Correlation Coefficient, mean, and standard deviation. The program adeptly handles data from CSV files and performs complex statistical operations, showcasing the power of Prolog in data analysis.\nKey Features CSV Data Handling: Efficiently loads data from specified columns of CSV files, accommodating both headers and non-header datasets.",
+  "inLanguage" : "en",
+  "wordCount":  675 ,
+  "datePublished" : "2024-01-15T17:24:07",
+  "dateModified" : "2024-01-15T17:24:07",
+  "image" : "https:\/\/Kendallchris.github.io",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/Kendallchris.github.io\/posts\/thirteenth-post\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/Kendallchris.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/Kendallchris.github.io",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Statistical Analysis in Prolog" />
+<meta property="og:description" content="Statistical Analysis in Prolog Author: Chris Kendall
+Date: 20 November 2023
+This Prolog program, stats.pl, is designed for advanced statistical computations, focusing on linear regression, Pearson Correlation Coefficient, mean, and standard deviation. The program adeptly handles data from CSV files and performs complex statistical operations, showcasing the power of Prolog in data analysis.
+Key Features CSV Data Handling: Efficiently loads data from specified columns of CSV files, accommodating both headers and non-header datasets.">
+<meta property="og:url" content="https://Kendallchris.github.io/posts/thirteenth-post/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Chris&#39; Portfolio" />
+
+  <meta name="twitter:title" content="Statistical Analysis in Prolog" />
+  <meta name="twitter:description" content="Statistical Analysis in Prolog Author: Chris Kendall
+Date: 20 November 2023
+This Prolog program, stats.pl, is designed for advanced statistical computations, focusing on linear regression, Pearson …">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="generator" content="Hugo 0.120.4">
+  <link rel="alternate" href="https://Kendallchris.github.io/index.xml" type="application/rss+xml" title="Chris&#39; Portfolio"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://Kendallchris.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://Kendallchris.github.io/css/syntax.css" /><link rel="stylesheet" href="https://Kendallchris.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://Kendallchris.github.io">Chris&#39; Portfolio</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Statistical Analysis in Prolog</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="statistical-analysis-in-prolog">Statistical Analysis in Prolog</h1>
+<p><strong>Author</strong>: Chris Kendall<br>
+<strong>Date</strong>: 20 November 2023</p>
+<p>This Prolog program, <code>stats.pl</code>, is designed for advanced statistical computations, focusing on linear regression, Pearson Correlation Coefficient, mean, and standard deviation. The program adeptly handles data from CSV files and performs complex statistical operations, showcasing the power of Prolog in data analysis.</p>
+<h2 id="key-features">Key Features</h2>
+<ol>
+<li><strong>CSV Data Handling</strong>: Efficiently loads data from specified columns of CSV files, accommodating both headers and non-header datasets.</li>
+<li><strong>Linear Regression Analysis</strong>: Calculates alpha and beta parameters for establishing linear relationships between two data sets.</li>
+<li><strong>Pearson Correlation Coefficient</strong>: Assesses the strength and direction of the relationship between two variables.</li>
+<li><strong>Mean and Standard Deviation</strong>: Determines the average value and variability in a list of numbers.</li>
+</ol>
+<h2 id="program-usage">Program Usage</h2>
+<ul>
+<li><strong>CSV Reading</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">load_data_column</span>(<span style="color:#e6db74">&#39;data.csv&#39;</span>, <span style="color:#e6db74">true</span>, <span style="color:#ae81ff">1</span>, List).
+</span></span></code></pre></div>This function reads data from a given column in a CSV file. The second argument specifies if the file has a header.</li>
+<li><strong>Linear Regression Parameters</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">regressiona</span>(X, Y, A), <span style="color:#a6e22e">regressionb</span>(X, Y, B).
+</span></span></code></pre></div>These functions calculate the alpha (A) and beta (B) parameters of linear regression.</li>
+<li><strong>Correlation Coefficient</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">correlation</span>(X, Y, R).
+</span></span></code></pre></div>Computes the Pearson Correlation Coefficient (R) between two sets of data.</li>
+<li><strong>Mean &amp; Standard Deviation</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">mean</span>(L, M), <span style="color:#a6e22e">stddev</span>(L, S).
+</span></span></code></pre></div>These functions compute the mean (M) and standard deviation (S) for a list (L) of numbers.</li>
+</ul>
+<h2 id="example-implementation">Example Implementation</h2>
+<p>The program uses SAT scores and GPA data for demonstration. It reads from <code>data1.csv</code>, <code>data2.csv</code>, and <code>sat-gpa.csv</code> to perform statistical analyses.</p>
+<h2 id="sample-code-snippet">Sample Code Snippet</h2>
+<p>Here is an excerpt showing the calculation of the mean:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">mean</span>(L, M) :-
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count_Sum</span>(L, Sum, Num),
+</span></span><span style="display:flex;"><span>    ( Num <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#e6db74">-&gt;</span> M <span style="color:#f92672">is</span> Sum <span style="color:#f92672">/</span> Num ; M <span style="color:#f92672">is</span> <span style="color:#ae81ff">0</span>).
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">count_Sum</span>([], <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">count_Sum</span>([Head|Tail], Sum, Num
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>) :-
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count_Sum</span>(Tail, TailSum, TailNum),
+</span></span><span style="display:flex;"><span>    Sum <span style="color:#f92672">is</span> Head <span style="color:#f92672">+</span> TailSum,
+</span></span><span style="display:flex;"><span>    Num <span style="color:#f92672">is</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> TailNum.
+</span></span></code></pre></div><p>This snippet exemplifies the Prolog approach to recursively summing a list and counting its elements to calculate the mean. The <code>mean/2</code> predicate computes the average of a list <code>L</code>, and the <code>count_Sum/3</code> helper predicate iteratively sums up the elements while counting them.</p>
+<h2 id="correlation-coefficient-calculation">Correlation Coefficient Calculation</h2>
+<p>Another critical feature of this program is the calculation of the Pearson Correlation Coefficient:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">correlation</span>(X, Y, R) :-
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sum_Products</span>(X, Y, SumXY),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sum_List</span>(X, SumX, N),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sum_List</span>(Y, SumY, <span style="color:#66d9ef">_</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sum_Square</span>(X, SumX2),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sum_Square</span>(Y, SumY2),
+</span></span><span style="display:flex;"><span>    Numerator <span style="color:#f92672">is</span> (N <span style="color:#f92672">*</span> SumXY <span style="color:#f92672">-</span> SumX <span style="color:#f92672">*</span> SumY),
+</span></span><span style="display:flex;"><span>    DenominatorX <span style="color:#f92672">is</span> (N <span style="color:#f92672">*</span> SumX2 <span style="color:#f92672">-</span> SumX <span style="color:#f92672">*</span> SumX),
+</span></span><span style="display:flex;"><span>    DenominatorY <span style="color:#f92672">is</span> (N <span style="color:#f92672">*</span> SumY2 <span style="color:#f92672">-</span> SumY <span style="color:#f92672">*</span> SumY),
+</span></span><span style="display:flex;"><span>    Denominator <span style="color:#f92672">is</span> <span style="color:#a6e22e">sqrt</span>(DenominatorX <span style="color:#f92672">*</span> DenominatorY),
+</span></span><span style="display:flex;"><span>    R <span style="color:#f92672">is</span> Numerator <span style="color:#f92672">/</span> Denominator.
+</span></span></code></pre></div><p>This part of the program demonstrates the use of Prolog&rsquo;s arithmetic capabilities and list processing to compute the correlation coefficient, a measure of the linear relationship between two variables.</p>
+<p>The program&rsquo;s design emphasizes Prolog&rsquo;s strengths in data processing, recursion, and mathematical calculation, making it a robust tool for statistical analysis in research and data science fields.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The <code>stats.pl</code> program in Prolog presents a comprehensive approach to statistical analysis, particularly emphasizing linear regression, correlation, and basic descriptive statistics like mean and standard deviation. Its ability to process CSV files adds a layer of practicality, making it suitable for real-world data analysis tasks.</p>
+<h3 id="strengths">Strengths</h3>
+<ul>
+<li><strong>Efficiency in Data Handling</strong>: The program&rsquo;s adeptness in reading and processing data from CSV files is particularly noteworthy. This feature makes it highly adaptable to a range of datasets.</li>
+<li><strong>Versatility in Statistical Analysis</strong>: With built-in functions for calculating key statistical parameters and coefficients, the program stands as a testament to Prolog&rsquo;s capability in handling complex mathematical computations.</li>
+</ul>
+<h3 id="applications">Applications</h3>
+<p>This program can be employed in various fields where data analysis is crucial. From academic research requiring linear regression analysis to market studies analyzing trends and correlations, <code>stats.pl</code> offers a solid foundation for in-depth statistical investigation.</p>
+<h3 id="future-enhancements">Future Enhancements</h3>
+<ul>
+<li><strong>Expanding Functionality</strong>: Incorporating more statistical functions like hypothesis testing or time series analysis could significantly enhance its utility.</li>
+<li><strong>User Interface Improvements</strong>: Developing a more user-friendly interface or integrating it with other programming environments can broaden its accessibility.</li>
+</ul>
+<p>In summary, <code>stats.pl</code> in Prolog is a robust, efficient tool for statistical analysis. Its combination of advanced statistical functions and ease of handling complex datasets makes it an invaluable resource for researchers and data analysts. Find full repo <a href="https://github.com/csc3310-fall2023/prolog-Kendallchris">here</a>.</p>
+
+
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://Kendallchris.github.io/posts/twelth-post/" data-toggle="tooltip" data-placement="top" title="Statistical Analysis with `stats.scm`: A Comprehensive Overview">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://Kendallchris.github.io">Chris&#39; Portfolio</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.120.4</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://Kendallchris.github.io/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://Kendallchris.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
