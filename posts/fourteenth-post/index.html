@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Rust Lexical and Syntax Analyzer - </title>
+
+  <meta name="description" content="Rust Lexical and Syntax Analyzer By: Chris Kendall Date: 15 October 2023 Introduction This post delves into a Rust-based lexical and syntax analyzer, a sophisticated program capable of dissecting and interpreting a specialized language. The core components of this program include lexer.rs, parser.rs, scheme.rs, and prolog.rs, each serving a distinct purpose in the language processing pipeline.
+Lexer Module (lexer.rs) The lexer, or lexical analyzer, serves as the first phase of the language processing pipeline."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Chris\u0027 Portfolio",
+    
+    "url": "https:\/\/Kendallchris.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/Kendallchris.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/Kendallchris.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/Kendallchris.github.io\/posts\/fourteenth-post\/",
+          "name": "Rust lexical and syntax analyzer"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Rust Lexical and Syntax Analyzer",
+  "description" : "Rust Lexical and Syntax Analyzer By: Chris Kendall Date: 15 October 2023 Introduction This post delves into a Rust-based lexical and syntax analyzer, a sophisticated program capable of dissecting and interpreting a specialized language. The core components of this program include lexer.rs, parser.rs, scheme.rs, and prolog.rs, each serving a distinct purpose in the language processing pipeline.\nLexer Module (lexer.rs) The lexer, or lexical analyzer, serves as the first phase of the language processing pipeline.",
+  "inLanguage" : "en",
+  "wordCount":  777 ,
+  "datePublished" : "2024-01-15T19:22:12",
+  "dateModified" : "2024-01-15T19:22:12",
+  "image" : "https:\/\/Kendallchris.github.io",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/Kendallchris.github.io\/posts\/fourteenth-post\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/Kendallchris.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/Kendallchris.github.io",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Rust Lexical and Syntax Analyzer" />
+<meta property="og:description" content="Rust Lexical and Syntax Analyzer By: Chris Kendall Date: 15 October 2023 Introduction This post delves into a Rust-based lexical and syntax analyzer, a sophisticated program capable of dissecting and interpreting a specialized language. The core components of this program include lexer.rs, parser.rs, scheme.rs, and prolog.rs, each serving a distinct purpose in the language processing pipeline.
+Lexer Module (lexer.rs) The lexer, or lexical analyzer, serves as the first phase of the language processing pipeline.">
+<meta property="og:url" content="https://Kendallchris.github.io/posts/fourteenth-post/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Chris&#39; Portfolio" />
+
+  <meta name="twitter:title" content="Rust Lexical and Syntax Analyzer" />
+  <meta name="twitter:description" content="Rust Lexical and Syntax Analyzer By: Chris Kendall Date: 15 October 2023 Introduction This post delves into a Rust-based lexical and syntax analyzer, a sophisticated program capable of dissecting and …">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="generator" content="Hugo 0.120.4">
+  <link rel="alternate" href="https://Kendallchris.github.io/index.xml" type="application/rss+xml" title="Chris&#39; Portfolio"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://Kendallchris.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://Kendallchris.github.io/css/syntax.css" /><link rel="stylesheet" href="https://Kendallchris.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://Kendallchris.github.io">Chris&#39; Portfolio</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Rust Lexical and Syntax Analyzer</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="rust-lexical-and-syntax-analyzer">Rust Lexical and Syntax Analyzer</h1>
+<h3 id="by-chris-kendall">By: Chris Kendall</h3>
+<h3 id="date-15-october-2023">Date: 15 October 2023</h3>
+<h2 id="introduction">Introduction</h2>
+<p>This post delves into a Rust-based lexical and syntax analyzer, a sophisticated program capable of dissecting and interpreting a specialized language. The core components of this program include <code>lexer.rs</code>, <code>parser.rs</code>, <code>scheme.rs</code>, and <code>prolog.rs</code>, each serving a distinct purpose in the language processing pipeline.</p>
+<h3 id="lexer-module-lexerrs">Lexer Module (<code>lexer.rs</code>)</h3>
+<p>The lexer, or lexical analyzer, serves as the first phase of the language processing pipeline. It reads the source string and decomposes it into a series of tokens, each representing a fundamental language element such as identifiers, numbers, and keywords.</p>
+<p><strong>Data Structures Used:</strong></p>
+<ul>
+<li><code>Vec&lt;Token&gt;</code>: A dynamic array used to store the list of tokens.</li>
+<li><code>Peekable&lt;Chars&gt;</code>: An iterator that allows peeking at the next character in the source string without consuming it.</li>
+</ul>
+<p><strong>Why These Structures?</strong></p>
+<ul>
+<li><code>Vec&lt;Token&gt;</code> is chosen for its dynamic size and ease of adding elements, which is essential as the number of tokens is unknown at the start of lexical analysis.</li>
+<li><code>Peekable&lt;Chars&gt;</code> is crucial for lookahead functionality, allowing the lexer to make decisions based on upcoming characters without advancing the iterator.</li>
+</ul>
+<p><strong>Code Excerpt:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">lexical_analysis</span>(source: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) -&gt; Result<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span>Token<span style="color:#f92672">&gt;</span>, String<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> tokens <span style="color:#f92672">=</span> Vec::new();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> chars <span style="color:#f92672">=</span> source.chars().peekable();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">let</span> Some(ch) <span style="color:#f92672">=</span> chars.next() {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    Ok(tokens)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="parser-module-parserrs">Parser Module (<code>parser.rs</code>)</h4>
+<p>The parser module performs syntactical analysis, building upon the tokens generated by the lexer. It constructs an abstract syntax tree (AST) that mirrors the grammatical structure of the source program.</p>
+<p><strong>Data Structures Used:</strong></p>
+<ul>
+<li><code>Vec&lt;TreeNode&gt;</code>: A vector to store the nodes of the AST.</li>
+<li><code>TreeNode</code>: An enum representing different kinds of syntax nodes like data declarations, assignments, and expressions.</li>
+</ul>
+<p><strong>Why These Structures?</strong></p>
+<ul>
+<li><code>Vec&lt;TreeNode&gt;</code> is suitable for dynamically storing various syntax structures encountered during parsing.</li>
+<li><code>TreeNode</code> as an enum allows the representation of a diverse range of syntax elements with different data types and structures under one umbrella.</li>
+</ul>
+<p><strong>Code Excerpt:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">parse</span>(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self) -&gt; Result<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672">&gt;</span>, String<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> nodes <span style="color:#f92672">=</span> Vec::new();
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>    Ok(nodes)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="scheme-and-prolog-conversion-modules-schemers-and-prologrs">Scheme and Prolog Conversion Modules (<code>scheme.rs</code> and <code>prolog.rs</code>)</h3>
+<p>These modules are responsible for translating the AST into Scheme and Prolog representations. They are pivotal for transforming the parsed language</p>
+<p>into forms that are recognizable in these target languages.</p>
+<p><strong>Data Structures Used:</strong></p>
+<ul>
+<li><code>String</code>: Used to represent the final converted code in Scheme or Prolog.</li>
+<li>Traits <code>ToScheme</code> and <code>ToProlog</code>: Define the behavior of AST nodes for conversion into the target languages.</li>
+</ul>
+<p><strong>Why These Structures?</strong></p>
+<ul>
+<li><code>String</code> is a natural choice for constructing and holding the textual representation of the converted code.</li>
+<li>Traits <code>ToScheme</code> and <code>ToProlog</code> provide a uniform interface for conversion, ensuring that each AST node can be translated into the target language in a modular and extensible manner.</li>
+</ul>
+<p><strong>Code Excerpt from Scheme Module:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">convert_to_scheme</span>(node: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">TreeNode</span>) -&gt; String {
+</span></span><span style="display:flex;"><span>    node.to_scheme()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> ToScheme <span style="color:#66d9ef">for</span> TreeNode {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">to_scheme</span>(<span style="color:#f92672">&amp;</span>self) -&gt; String {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">match</span> self {
+</span></span><span style="display:flex;"><span>            TreeNode::Data(_) <span style="color:#f92672">=&gt;</span> String::new(),
+</span></span><span style="display:flex;"><span>            TreeNode::Input(assignments) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                assignments.iter().map(<span style="color:#f92672">|</span>a<span style="color:#f92672">|</span> a.to_scheme()).collect::<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span>().join(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Code Excerpt from Prolog Module:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">convert_to_prolog</span>(node: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">TreeNode</span>) -&gt; String {
+</span></span><span style="display:flex;"><span>    node.to_prolog()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> ToProlog <span style="color:#66d9ef">for</span> TreeNode {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">to_prolog</span>(<span style="color:#f92672">&amp;</span>self) -&gt; String {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">match</span> self {
+</span></span><span style="display:flex;"><span>            TreeNode::Data(_) <span style="color:#f92672">=&gt;</span> String::new(),
+</span></span><span style="display:flex;"><span>            TreeNode::Input(assignments) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                assignments.iter().map(<span style="color:#f92672">|</span>a<span style="color:#f92672">|</span> a.to_prolog()).collect::<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span>().join(<span style="color:#e6db74">&#34;,</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">   &#34;</span>)
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>This Rust implementation elegantly demonstrates the power of the language in building complex language processing tools. The lexer efficiently tokenizes the source string, while the parser adeptly constructs an AST, paving the way for versatile translations into Scheme and Prolog. The use of dynamic arrays (Vec), enums, and traits underscores Rust&rsquo;s capability in handling diverse data types and structures, essential in language processing. The</p>
+<p>modular design of the system, with each module focusing on a specific aspect of language processing, reflects thoughtful software engineering principles. The lexer ensures the foundational integrity of the source code, the parser builds a meaningful structure out of it, and the Scheme and Prolog modules transform this structure into different programming paradigms.</p>
+<p>This approach not only streamlines the development process but also enhances the maintainability and scalability of the software. By isolating different functionalities into distinct modules, updates or modifications can be made with minimal impact on other parts of the system.</p>
+<p>The choice of Rust for this application leverages the language&rsquo;s robust type system and memory safety features, which are critical in handling complex data structures like ASTs. Furthermore, Rust&rsquo;s performance efficiency makes it an excellent choice for building a language processor that is both fast and reliable.</p>
+<p>In summary, this project stands as a testament to the efficacy of using Rust for building language processing tools. It showcases how advanced programming concepts and data structures can be harmoniously integrated to create software that is both powerful and elegant. Full repo can be found <a href="https://github.com/Kendallchris/rust-parser/tree/main">here</a>.</p>
+
+
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://Kendallchris.github.io/posts/thirteenth-post/" data-toggle="tooltip" data-placement="top" title="Statistical Analysis in Prolog">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://Kendallchris.github.io">Chris&#39; Portfolio</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.120.4</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://Kendallchris.github.io/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://Kendallchris.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

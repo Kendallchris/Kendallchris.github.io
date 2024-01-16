@@ -6,8 +6,16 @@
     <description>Recent content on Chris&#39; Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jan 2024 17:24:07 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jan 2024 19:22:12 -0800</lastBuildDate>
     <atom:link href="https://Kendallchris.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust Lexical and Syntax Analyzer</title>
+      <link>https://Kendallchris.github.io/posts/fourteenth-post/</link>
+      <pubDate>Mon, 15 Jan 2024 19:22:12 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/fourteenth-post/</guid>
+      <description>Rust Lexical and Syntax Analyzer By: Chris Kendall Date: 15 October 2023 Introduction This post delves into a Rust-based lexical and syntax analyzer, a sophisticated program capable of dissecting and interpreting a specialized language. The core components of this program include lexer.rs, parser.rs, scheme.rs, and prolog.rs, each serving a distinct purpose in the language processing pipeline.
+Lexer Module (lexer.rs) The lexer, or lexical analyzer, serves as the first phase of the language processing pipeline.</description>
+    </item>
     <item>
       <title>Statistical Analysis in Prolog</title>
       <link>https://Kendallchris.github.io/posts/thirteenth-post/</link>
