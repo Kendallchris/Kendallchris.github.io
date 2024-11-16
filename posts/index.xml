@@ -9,6 +9,13 @@
     <lastBuildDate>Mon, 15 Jan 2024 19:22:12 -0800</lastBuildDate>
     <atom:link href="https://Kendallchris.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Automated Therapeutic Incentive Spirometer</title>
+      <link>https://Kendallchris.github.io/posts/fifteenth-post/</link>
+      <pubDate>Mon, 15 Jan 2024 19:22:12 -0800</pubDate>
+      <guid>https://Kendallchris.github.io/posts/fifteenth-post/</guid>
+      <description>Automated Therapeutic Incentive Spirometer By: Chris Kendall Date: 7 November 2024 Introduction For my capstone project, my team collaborated with Lung Technologies to develop a modified therapeutic spirometer featuring an electronic monitoring system. This system is designed to enhance post-surgical lung therapy by automatically recording and displaying usage data, while also providing reminders to encourage compliance. The spirometer integrates mechanical and electronic subsystems to ensure accurate measurements, intuitive use, and effective therapy.</description>
+    </item>
+    <item>
       <title>Rust Lexical and Syntax Analyzer</title>
       <link>https://Kendallchris.github.io/posts/fourteenth-post/</link>
       <pubDate>Mon, 15 Jan 2024 19:22:12 -0800</pubDate>
